@@ -1,14 +1,20 @@
 <div class="logo">
   <%= image_tag('kermeur-logo.png') %>
+  <%= get_title(controller_name, action_name) %>
+  <% if !current_prospect %>
+    <%= link_to 'Connexion', new_prospect_session_path %>
+  <% else %>
+    <%= link_to 'Déconnexion', destroy_prospect_session_path, :method => :delete %>
+  <% end %>
 </div>
 <nav class="main-nav">
-<% if params[:report_id] %>
+<% if current_prospect %>
   <ul>
     <li><%= link_to 'Eligibilité', root_path %></li>
-    <li><%= link_to 'Feuille de route', report_path(params[:report_id]) %></li>
-    <li><%= link_to 'Code conduite | Dispositif d\'alerte', new_report_second_step_path(params[:report_id]) %></li>
-    <li><%= link_to 'Autres dispositions', new_report_third_step_path(params[:report_id]) %></li>
-    <li><%= link_to 'Synthèse', report_dashboard_path(params[:report_id]) %></li>
+    <li><%= link_to 'Feuille de route', report_path(current_prospect.company.report) %></li>
+    <li><%= link_to 'Code conduite | Dispositif d\'alerte', new_report_second_step_path(current_prospect.company.report) %></li>
+    <li><%= link_to 'Autres dispositions', new_report_third_step_path(current_prospect.company.report) %></li>
+    <li><%= link_to 'Synthèse', report_dashboard_path(current_prospect.company.report) %></li>
   </ul>
 <% else %>
   <ul>

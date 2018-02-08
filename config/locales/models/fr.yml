@@ -17,10 +17,10 @@ fr:
         email: "Email"
         role: "Role dans l'entreprise"
         roles:
-          admin_board: "Membre du conseil d'administration"
-          surveillance_board: "Membre du conseil de surveillance"
+          admin_board: "Président, DG, Gérant"
+          surveillance_board: "DAF, Dir. sûreté"
           directory: "Membre du directoire"
-          operation_director: "Responsable des operations"
+          operation_director: "Dir. achats, projets, juridique, commercial"
           other: "Autres"
         is_responsible: "Responsable juridiquement?"
         created_at: "Créer le"
@@ -30,6 +30,9 @@ fr:
         localisations:
           in_france: "En France"
           abroad: "A l'étranger"
+        daughter_localisation:
+          local: "En France"
+          broad: "A l'étranger"
         firm_type: "Structure"
         firm_types:
           epic: "EPIC"

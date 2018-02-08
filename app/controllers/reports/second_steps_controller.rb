@@ -6,6 +6,9 @@ module Reports
   class SecondStepsController < ApplicationController
     def new
       @report = Report.find(params[:report_id])
+      unless current_prospect.company.report == @report || current_admin_user.nil?
+        redirect_to root_path
+      end
       @report_obligations = @report.report_obligations.important.includes(obligation: :tasks)
     end
 

@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-
+  devise_for :prospects
   root 'reports/first_steps#new'
 
   resources :report, only: %i[new create show], controller: 'reports/first_steps'
