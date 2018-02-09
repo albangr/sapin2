@@ -1,0 +1,5 @@
+<%= form_tag report_second_step_path(@report), class: "form form-last" do %>
+  <%= render partial: "reports/tasks_form", locals: { report_obligations: @report_obligations } %>
+<% end %>
+
+
