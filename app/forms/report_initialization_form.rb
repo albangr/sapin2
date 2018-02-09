@@ -34,7 +34,7 @@ class ReportInitializationForm
   validates :employees_count, presence: true, inclusion: { in: Company.employees_counts.keys }
 
   validate do
-    if self.email && ObjectSpace.each_object(self.class).select{|o| o.email == self.email }.size > 1
+    if self.email && ( ObjectSpace.each_object(self.class).select{|o| o.email == self.email }.size > 1 || Prospect.where(email: self.email).size >= 1 )
          errors.add(:email,"Email déjà utilisé")
     end
   end
