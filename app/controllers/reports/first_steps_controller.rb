@@ -4,6 +4,9 @@ module Reports
   # Handles the actions linked to the first step of the report creation (prospect and company infos)
   class FirstStepsController < ApplicationController
     def new
+      if current_prospect
+        redirect_to report_dashboard_path(current_prospect.company.report)
+      end
       @form = ReportInitializationForm.new
     end
 

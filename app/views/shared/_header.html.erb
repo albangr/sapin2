@@ -10,7 +10,7 @@
 <nav class="main-nav">
 <% if current_prospect %>
   <ul>
-    <li><%= link_to 'Eligibilité', root_path %></li>
+    <li><%= link_to 'Eligibilité', root_path, class: "disabled" %></li>
     <li><%= link_to 'Feuille de route', report_path(current_prospect.company.report) %></li>
     <li><%= link_to 'Code conduite | Dispositif d\'alerte', new_report_second_step_path(current_prospect.company.report) %></li>
     <li><%= link_to 'Autres dispositions', new_report_third_step_path(current_prospect.company.report) %></li>
